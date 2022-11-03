@@ -1,0 +1,3 @@
+<template>
+    show page
+</template>

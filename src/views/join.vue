@@ -1,0 +1,3 @@
+<template>
+    join us!
+</template>

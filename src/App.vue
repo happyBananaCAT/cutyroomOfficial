@@ -1,85 +1,68 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { h } from 'vue'
+const nboptions = [
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: '/'
+        },
+        { default: () => '回家' }
+      ),
+    key: 'home',
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: '/show'
+        },
+        { default: () => '展示' }
+      ),
+    key: 'show',
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: '/join'
+        },
+        { default: () => '加入' }
+      ),
+    key: 'join',
+  },
+]
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <n-layout class="main">
+    <n-layout-header class="nav">
+      <div class="logo nav">
+        <img class="logo" src="./assets/logo.svg">
+        <span>萌屋</span>
+      </div>
+      <n-dropdown trigger="click" :options="nboptions">
+        <n-button>点击！</n-button>
+      </n-dropdown>
+      <div class="route nav">
+        <router-link to="/">home</router-link>
+        <router-link to="/show">show</router-link>
+        <router-link to="/join">join</router-link>
+      </div>
+    </n-layout-header>
+    <n-layout-content>
+      <router-view></router-view>
+    </n-layout-content>
+    <n-layout-footer>
+      footer放些啥？没想好.jpg
+    </n-layout-footer>
+  </n-layout>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<script lang="ts">
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+</script>
