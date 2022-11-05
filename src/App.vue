@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { h } from 'vue'
+import { h, onMounted } from 'vue'
 const nboptions = [
   {
     label: () =>
@@ -36,11 +36,18 @@ const nboptions = [
     key: 'join',
   },
 ]
+const vHeightFix = ()=>{
+  document.documentElement.style.setProperty('--vh',`${innerHeight*0.01}px`)
+}
+onMounted(() => {
+  addEventListener('resize',vHeightFix);
+  vHeightFix();
+})
 </script>
 
 <template>
-  <n-layout class="main">
-    <n-layout-header class="nav">
+  <n-layout :native-scrollbar="false" position="absolute">
+    <n-layout-header position="absolute" class="nav">
       <div class="logo nav">
         <img class="logo" src="./assets/logo.svg">
         <span>萌屋</span>
@@ -54,11 +61,16 @@ const nboptions = [
         <router-link to="/join">join</router-link>
       </div>
     </n-layout-header>
-    <n-layout-content>
+    <n-layout-content style="background: transparent; z-index: 10;">
       <router-view></router-view>
     </n-layout-content>
     <n-layout-footer>
-      footer放些啥？没想好.jpg
+      <span>萌屋研究所🧡</span>
+      <span>
+        <span>@C.S.N.创新创业实验室</span>
+        <span>❤️湘潭大学</span>
+      </span>
+      <span>💛Kerocate</span>
     </n-layout-footer>
   </n-layout>
 </template>

@@ -9,7 +9,9 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@types/hammerjs": "^2.0.41",
     "@vueuse/core": "^9.4.0",
+    "gasp": "^0.0.2",
     "immer": "^9.0.16",
     "naive-ui": "^2.33.5",
     "three": "^0.146.0",
