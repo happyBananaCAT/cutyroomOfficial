@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-import type { VueElement } from '@vue/runtime-dom';
+// import renderWorker from "../wokerscript/threeOffscreen?worker&url"
 
 export interface Props {
     height: number
@@ -35,7 +35,8 @@ const nowAngle = markRaw({
     gamma: 0
 })
 
-const container = ref<VueElement>();
+let container = ref<HTMLCanvasElement>();
+// container = container.value!.transferControlToOffscreen();
 const threeObjs = markRaw(toRaw(shallowReactive({
     mixer: THREE.AnimationMixer.prototype,
     clock: new THREE.Clock(),
@@ -47,32 +48,19 @@ const threeObjs = markRaw(toRaw(shallowReactive({
 })))
 
 onMounted(() => {
-    // threeObjs.dracoloader.setDecoderPath("/node_modules/three/examples/js/libs/draco/gltf/");
-    // threeObjs.loader.setDRACOLoader(threeObjs.dracoloader)
-    // const loderWoker = new Worker("/src/wokerscript/threeLoader.ts", { type: 'module' });
-    // loderWoker.addEventListener("message", ({ data }) => {
-    //     threeObjs.gltfLoader.parse(data.out, '', (obj) => {
-    //         const model = obj.scene;
-    //         const animation = obj.animations
-    //         model.position.set(0, 0, 0)
-    //         model.scale.set(0.01, 0.01, 0.01);
-    //         threeObjs.scene.add(model);
-
-    //         threeObjs.mixer = new THREE.AnimationMixer(model);
-    //         threeObjs.mixer.clipAction(animation[0]).play();
-
-    //         animate();
-    //     })
+    // const Woker = new Worker(renderWorker,{type:"module"});
+    // Woker.addEventListener("message", (e) => {
+    //     console.log(e.data)
     // });
+    // Woker.postMessage(container,[container]);
     threeObjs.renderer.setPixelRatio(window.devicePixelRatio);
     threeObjs.renderer.setSize(props.width, props.height);
     threeObjs.renderer.outputEncoding = THREE.sRGBEncoding;
     container.value?.appendChild(threeObjs.renderer.domElement);
     const pmremGenerator = new THREE.PMREMGenerator(threeObjs.renderer);
-    threeObjs.scene.background = new THREE.Color(0xbfe3dd);
+    threeObjs.scene.background = new THREE.Color(0xFFB3E6);
     threeObjs.scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
     threeObjs.camera.position.set(-0.75, -0.25, props.distance);
-    // loderWoker.postMessage("1");
     threeObjs.dracoloader.setDecoderPath('/node_modules/three/examples/js/libs/draco/gltf/');
     threeObjs.loader.setDRACOLoader(threeObjs.dracoloader);
     threeObjs.renderer.render(threeObjs.scene, threeObjs.camera);

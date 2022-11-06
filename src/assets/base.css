@@ -1,6 +1,6 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --vh:1vh;
+  --vh: 1vh;
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
@@ -20,6 +20,18 @@
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+
+  --bg-color: #FFB3E6;
+  --brand-color: #ff0066;
+  --aux-color: #FFBF00;
+  --com-color: #00ffff;
+
+  --white-pure: #FdFdFd;
+  --white-gain: #DCDCDC;
+  --white-geay: #C0C0C0;
+
+  color-scheme: light;
+  accent-color: var(--brand-color);
 }
 
 /* semantic color variables for this project */
@@ -37,7 +49,7 @@
   --section-gap: 160px;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--vt-c-black);
     --color-background-soft: var(--vt-c-black-soft);
@@ -49,7 +61,7 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
   }
-}
+} */
 
 *,
 *::before,
@@ -57,19 +69,19 @@
   box-sizing: border-box;
   font-weight: normal;
 }
-html{
+
+html {
   position: relative;
   margin: 0;
   padding: 0;
 }
+
 body {
   /* min-height: 100vh; !草泥马有坑*/
   color: var(--color-text);
   background: var(--color-background);
-  line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
+  /* font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -1548,6 +1548,13 @@
   dependencies:
     "evtd" "^0.2.2"
 
+"vicons@^0.0.1":
+  "integrity" "sha512-suYeiVqw/q+ijWBlsGP5vhTUphRqLzCLZKqBHK4iuzlOmP1omKWDWQd+da7rDZU7dyPD5TTV9MXTLCxQt3d7zQ=="
+  "resolved" "https://registry.npmjs.org/vicons/-/vicons-0.0.1.tgz"
+  "version" "0.0.1"
+  dependencies:
+    "vue" "^3.0.2"
+
 "vite-plugin-mkcert@^1.10.1":
   "integrity" "sha512-fNNC0z+AcBZExKedjWC7bWlDMf4+WZJqO/4aYf7C/vYY1dqYVOM+zowwTYV0xSx5ZQgplfangPkZk+RwdUlpBg=="
   "resolved" "https://registry.npmjs.org/vite-plugin-mkcert/-/vite-plugin-mkcert-1.10.1.tgz"
@@ -1605,7 +1612,7 @@
     "@volar/vue-language-core" "1.0.9"
     "@volar/vue-typescript" "1.0.9"
 
-"vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.0.11", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.41", "vue@2 || 3", "vue@3.2.41":
+"vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.0.11", "vue@^3.0.2", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.41", "vue@2 || 3", "vue@3.2.41":
   "integrity" "sha512-uuuvnrDXEeZ9VUPljgHkqB5IaVO8SxhPpqF2eWOukVrBnRBx2THPSGQBnVRt0GrIG1gvCmFXMGbd7FqcT1ixNQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.41.tgz"
   "version" "3.2.41"
@@ -1674,3 +1681,8 @@
   "integrity" "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="
   "resolved" "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz"
   "version" "1.0.2"
+
+"xicons@^1.0.0":
+  "integrity" "sha512-LIEQPAEQA55vRXXZym5RWtO20JC1/nGz02Jvcf2ufT21H2KTGAr8I4zEcoZM/2ADafkYPLROjZw6cKF5mO8Ckw=="
+  "resolved" "https://registry.npmjs.org/xicons/-/xicons-1.0.0.tgz"
+  "version" "1.0.0"
