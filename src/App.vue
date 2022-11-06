@@ -64,7 +64,7 @@ onMounted(() => {
           <span>萌屋</span>
         </div>
         <n-dropdown trigger="click" :options="nboptions">
-          <n-button color="#ff006" circle size="large" 
+          <n-button color="#ff0066" circle size="large" 
           style="
             -webkit-filter: drop-shadow(.1rem .1rem .1rem rgba(200, 25, 95, 0.5));
             filter: drop-shadow(.1rem .1rem .1rem rgba(200, 25, 95, 0.5));
