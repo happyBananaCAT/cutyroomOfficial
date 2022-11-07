@@ -11,8 +11,7 @@
   "dependencies": {
     "@types/hammerjs": "^2.0.41",
     "@vueuse/core": "^9.4.0",
-    "gasp": "^0.0.2",
-    "immer": "^9.0.16",
+    "gsap": "^3.11.3",
     "naive-ui": "^2.33.5",
     "parallax-js": "^3.1.0",
     "three": "^0.146.0",

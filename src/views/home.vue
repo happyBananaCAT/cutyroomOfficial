@@ -1,5 +1,5 @@
 <style scoped>
-.placehoder {
+.scene {
     background: transparent;
     /* height: v-bind(viewControl.height()+'px'); 这里的不会计算响应*/
 }
@@ -9,12 +9,15 @@
     <Gravity style="position: absolute; z-index: -1;" :width="viewControl.width" :height="viewControl.height()"
         :fov="viewControl.fov()" :distance="viewControl.distance()" />
     <div id="gsap-content">
-        <div class="placehoder" :style="{ 'height': viewControl.height() + 'px' }"></div>
+        <div id="scene1" class="scene" :style="{ 'height': viewControl.height() + 'px' }"></div>
+        <div class="scene" :style="{ 'height': viewControl.height() + 'px' }"></div>
+        <div class="scene" :style="{ 'height': viewControl.height() + 'px' }"></div>
+        <div class="scene" :style="{ 'height': viewControl.height() + 'px' }"></div>
     </div>
 </template>
 
 <script setup lang="ts">
-// import type { Props } from '@/components/Gravity.vue';
+import { gsap } from "gsap";
 import { onMounted, reactive } from 'vue';
 
 const viewControl = reactive({
@@ -39,6 +42,7 @@ const viewControl = reactive({
     }
 })
 onMounted(() => {
+    gsap.tw
     onresize = () => {
         viewControl.width = innerWidth
     }

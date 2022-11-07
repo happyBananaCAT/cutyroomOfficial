@@ -84,13 +84,14 @@ onMounted(() => {
         })
 
     function animate() {
-        if (threeObjs.scene.visible) {
-            requestAnimationFrame(animate);
-
-            const delta = threeObjs.clock.getDelta();
+        const delta = threeObjs.clock.getDelta();
+        if (isElementInViewport(container.value!)) {
             threeObjs.scene.rotation.set(relativeAngle.beta, relativeAngle.gamma, 0)
             threeObjs.mixer.update(delta);
             threeObjs.renderer.render(threeObjs.scene, threeObjs.camera);
+        }
+        if (threeObjs.scene.visible) {
+            requestAnimationFrame(animate);
         }
         // container.value!.style.backgroundImage = 'url('+threeObjs.renderer.domElement.toDataURL()+')';
     }
@@ -100,7 +101,7 @@ onMounted(() => {
     // },{useCapture:true})
 })
 onUnmounted(() => {
-    //清理防止重复渲染   
+    //清理防止重复渲染 
     threeObjs.camera.clear();
     threeObjs.scene.clear();
     threeObjs.scene.visible = false;
@@ -147,6 +148,14 @@ async function gravitySensor(ev: DeviceOrientationEvent) {
     // console.log(isReactive(reactive(remainAngle)))
     // console.log("now "+isReactive(nowAngle.beta))
     // console.log("remain "+isReactive(remainAngle.beta))
+}
+function isElementInViewport(el: HTMLElement) {
+    if (el) {
+        var rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 - window.innerHeight
+        );
+    }
 }
 //     <p>baseBeta: {{ relativeAngleBase.beta }}</p>
 //     <p>baseGamma: {{ relativeAngleBase.gamma }}</p>

@@ -66,8 +66,8 @@ onMounted(() => {
         <n-dropdown trigger="click" :options="nboptions">
           <n-button color="#ff0066" circle size="large" 
           style="
-            -webkit-filter: drop-shadow(.1rem .1rem .1rem rgba(200, 25, 95, 0.5));
-            filter: drop-shadow(.1rem .1rem .1rem rgba(200, 25, 95, 0.5));
+            -webkit-filter: drop-shadow(.1rem .1rem .1rem rgba(200, 25, 95, 0.7));
+            filter: drop-shadow(.1rem .1rem .1rem rgba(200, 25, 95, 0.7));
           ">
             <n-icon size="2rem" :component="More48Regular"></n-icon>
           </n-button>
