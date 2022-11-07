@@ -14,6 +14,7 @@
     "gasp": "^0.0.2",
     "immer": "^9.0.16",
     "naive-ui": "^2.33.5",
+    "parallax-js": "^3.1.0",
     "three": "^0.146.0",
     "vite-plugin-mkcert": "^1.10.1",
     "vue": "^3.2.41",

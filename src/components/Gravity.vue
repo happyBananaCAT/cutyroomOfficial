@@ -95,6 +95,9 @@ onMounted(() => {
         // container.value!.style.backgroundImage = 'url('+threeObjs.renderer.domElement.toDataURL()+')';
     }
     window.addEventListener('deviceorientation', gravitySensor, { passive: true })
+    // window.addEventListener('devicemotion',(e)=>{
+    //     console.log(e)
+    // },{useCapture:true})
 })
 onUnmounted(() => {
     //清理防止重复渲染   
