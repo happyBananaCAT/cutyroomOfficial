@@ -46,6 +46,7 @@
     writing-mode: horizontal-tb;
     /* transform: translateX('100vw'); */
     opacity: 0;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 </style>
 
@@ -63,6 +64,12 @@
                     <span class="dannmaku">前面的不要玩梗</span>
                     <span class="dannmaku">妈诶我手机卡爆了</span>
                     <span class="dannmaku">太强了太强了</span>
+                    <span class="dannmaku">晃动手机居然模型也会动</span>
+                    <span class="dannmaku">太神了，大神带带我</span>
+                    <span class="dannmaku">我现在就想报名！</span>
+                    <span class="dannmaku">我湘带争气了</span>
+                    <span class="dannmaku">鸡你太美</span>
+                    <span class="dannmaku">就问你们打不打音游</span>
                 </div>
             </div>
             <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
@@ -98,20 +105,22 @@ const viewControl = reactive({
     }
 })
 onMounted(() => {
-    let s1 = gsap.timeline({ repeat: -1, repeatDelay: 2 });
-    s1.from('#s1-title', { duration: 1, text: "萌屋研究所" });
-    s1.to('#s1-title', { duration: 1, text: "萌屋工作室" });
-    s1.to('#s1-title', { duration: 2, text: "不一样的快乐" });
-    s1.to('#s1-title', { duration: 1, text: "萌屋研究所" });
+    let s1Typed = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#scene1',
+            toggleActions: "play pause resume reset",
+        },
+        repeat: -1,  
+        repeatDelay: 2 
+    });
+    s1Typed.from('#s1-title', { duration: 1, text: "萌屋研究所" });
+    s1Typed.to('#s1-title', { duration: 1, text: "萌屋工作室" });
+    s1Typed.to('#s1-title', { duration: 2, text: "不一样的快乐" });
+    s1Typed.to('#s1-title', { duration: 1, text: "萌屋研究所" });
     let s1Dannmaku = gsap.timeline({
         scrollTrigger: {
             trigger: '#scene1',
-            scroller:"#content-scroller > div.n-scrollbar-rail.n-scrollbar-rail--vertical",
             toggleActions: "play pause resume reset",
-            onEnter:()=>{console.log('enter1')},
-            onEnterBack:()=>{console.log('enter back')},
-            onLeave:()=>{console.log('onleave')},
-            onLeaveBack:()=>{console.log('back')}
         },
         defaults: {
             duration: 1,
@@ -125,13 +134,14 @@ onMounted(() => {
         .set('.dannmaku', {
             x: '100vw',
             xPercent: 100,
-            y: 'random(0,100)' + 'vh',
+            y: 'random(0,100)vh',
             color: 'random([red,green,blue,yellow,white,orange,purple])',
+            fontSize:'random(0,50)px',
             opacity: 1
         })
         .to('.dannmaku', {
-            duration: 'random(1,3)',
-            delay: 'random(1,3)',
+            duration: 'random(1,5)',
+            delay: 'random(1,5)',
             x: '0vw',
             xPercent: -100
         })
