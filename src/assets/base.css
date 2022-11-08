@@ -31,11 +31,8 @@
   --white-geay: #C0C0C0;
 
   color-scheme: light;
-  accent-color: var(--brand-color);
-}
 
-/* semantic color variables for this project */
-:root {
+  accent-color: var(--brand-color);
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
@@ -70,11 +67,11 @@
   font-weight: normal;
 }
 
-html {
+/* html {
   position: relative;
   margin: 0;
   padding: 0;
-}
+} */
 
 body {
   /* min-height: 100vh; !草泥马有坑*/

@@ -22,6 +22,7 @@ declare module '@vue/runtime-core' {
     NLayoutContent: typeof import('naive-ui')['NLayoutContent']
     NLayoutFooter: typeof import('naive-ui')['NLayoutFooter']
     NLayoutHeader: typeof import('naive-ui')['NLayoutHeader']
+    NScrollbar: typeof import('naive-ui')['NScrollbar']
     OffscreenCanvas: typeof import('./src/components/offscreenCanvas.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

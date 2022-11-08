@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import type { GlobalThemeOverrides } from 'naive-ui'
 import { RouterLink, RouterView } from 'vue-router'
-import { h, onMounted } from 'vue'
+import { h, onMounted, ref, provide } from 'vue'
 import { More48Regular } from 'vicons/fluent'
+// const contentScroller = ref<HTMLElement>().value;
+// provide('content-scroller',contentScroller);
 const themeOverrides: GlobalThemeOverrides = {
   common: {
     primaryColor: '#ffb3e6',
@@ -56,16 +58,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <n-config-provider :theme-overrides="themeOverrides">
-    <n-layout :native-scrollbar="false" position="absolute">
+  <!-- <n-config-provider :theme-overrides="themeOverrides"> -->
+    <!-- <n-layout position="absolute">
       <n-layout-header position="absolute" class="nav nav-height">
         <div class="logo nav-height">
           <img class="logo" src="./assets/logo.svg">
           <span>萌屋</span>
         </div>
         <n-dropdown trigger="click" :options="nboptions">
-          <n-button color="#ff0066" circle size="large" 
-          style="
+          <n-button color="#ff0066" circle size="large" style="
             -webkit-filter: drop-shadow(.1rem .1rem .1rem rgba(200, 25, 95, 0.7));
             filter: drop-shadow(.1rem .1rem .1rem rgba(200, 25, 95, 0.7));
           ">
@@ -73,17 +74,19 @@ onMounted(() => {
           </n-button>
         </n-dropdown>
       </n-layout-header>
-      <n-layout-content style="background: transparent; z-index: 10;">
-        <router-view></router-view>
-      </n-layout-content>
-      <n-layout-footer>
-        <span>萌屋研究所🧡</span>
-        <span>
-          <span>@C.S.N.创新创业实验室</span>
-          <span>❤️湘潭大学</span>
-        </span>
-        <span>💛Kerocate</span>
-      </n-layout-footer>
-    </n-layout>
-  </n-config-provider>
+      <n-scrollbar>
+        <n-layout-content style="background: transparent; z-index: 10;">
+          <router-view></router-view>
+        </n-layout-content>
+        <n-layout-footer>
+          <span>萌屋研究所🧡</span>
+          <span>
+            <span>@C.S.N.创新创业实验室</span>
+            <span>❤️湘潭大学</span>
+          </span>
+          <span>💛Kerocate</span>
+        </n-layout-footer>
+      </n-scrollbar>
+    </n-layout> -->
+  <!-- </n-config-provider> -->
 </template>

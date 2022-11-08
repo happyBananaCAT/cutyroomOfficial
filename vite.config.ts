@@ -3,7 +3,6 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import mkcert from 'vite-plugin-mkcert'
 import vue from '@vitejs/plugin-vue'
-// import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
@@ -17,20 +16,6 @@ export default defineConfig({
       mkcertPath:".cert/mkcert-v1.4.4-windows-amd64.exe"
     }),
     vue(),
-    // AutoImport({
-    //   dts:true,
-    //   imports: [
-    //     'vue',
-    //     {
-    //       'naive-ui': [
-    //         'useDialog',
-    //         'useMessage',
-    //         'useNotification',
-    //         'useLoadingBar'
-    //       ]
-    //     }
-    //   ]
-    // }),
     Components({
       dts: true, // or a custom path
       resolvers: [NaiveUiResolver()]
