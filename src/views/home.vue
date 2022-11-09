@@ -42,9 +42,6 @@ import { gsap } from "gsap";
 import { TextPlugin } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
 import { onMounted, reactive, ref, inject, h, render, createVNode, renderList } from 'vue';
-import { el, mount, unmount } from "redom";
-// const scroller = inject('content-scroller',null);
-const s1DannmakuContainer = ref<HTMLElement>();
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -81,12 +78,6 @@ function createDom(json: { tag: string, content: string, sign?: { class?: string
 }
 
 onMounted(() => {
-    // let domt = createDom({
-    //     tag: 'span',
-    //     content: 'test',
-    //     sign: { class: 'dannmaku' }
-    // })
-    // s1DannmakuContainer.value?.appendChild(domt)
 
     onresize = () => {
         viewControl.width = innerWidth
