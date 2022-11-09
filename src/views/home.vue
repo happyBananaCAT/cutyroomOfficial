@@ -1,3 +1,4 @@
+<!-- 编译css -->
 <style scoped>
 .scene {
     overflow: hidden;
@@ -15,79 +16,39 @@
 #scroller {
     overflow: scroll;
 }
+</style>
 
-#s1-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12vw;
-    letter-spacing: 2vw;
-    color: white;
-    text-shadow: .2vw .2vw 1vw rgba(0, 0, 0, 0.6);
-    font-weight: bold;
-    /* backdrop-filter:blur(.1vw); */
-    /* background-color: rgba(0, 0, 0, 0.1); */
-    box-shadow: inset 0 0 10vw rgba(50, 50, 50, 0.4);
-}
+<!-- 无编译css -->
+<style>
 
-@media (max-aspect-ratio: 1/1) {
-    #s1-title {
-        font-size: 12vh;
-        letter-spacing: 2vh;
-        color: white;
-        text-shadow: .2vh .2vh 1vh rgba(0, 0, 0, 0.6);
-        writing-mode: vertical-lr;
-        box-shadow: inset 0 0 10vh rgba(50, 50, 50, 0.4);
-    }
-}
-
-.dannmaku {
-    position: absolute;
-    writing-mode: horizontal-tb;
-    /* transform: translateX('100vw'); */
-    opacity: 0;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-}
 </style>
 
 <template>
-    <!-- <div style="position: absolute;width:100%;height:100%;top:0;overflow: scroll;"> -->
-        <Gravity style="position: absolute; z-index: -1; overflow: hidden;" :width="viewControl.width"
-            :height="viewControl.height" :fov="viewControl.fov()" :distance="viewControl.distance()" />
-        <div id="gsap-content">
-            <div id="scene1" class="scene" :style="{ 'height': viewControl.height + 'px' }">
-                <div id="s1-title" class="layer"></div>
-                <div ref="s1Dannmaku" id="dannmaku" class="layer">
-                    <span class="dannmaku">卧槽这波牛逼</span>
-                    <span class="dannmaku">666</span>
-                    <span class="dannmaku">弹幕护体！！</span>
-                    <span class="dannmaku">前面的不要玩梗</span>
-                    <span class="dannmaku">妈诶我手机卡爆了</span>
-                    <span class="dannmaku">太强了太强了</span>
-                    <span class="dannmaku">晃动手机居然模型也会动</span>
-                    <span class="dannmaku">太神了，大神带带我</span>
-                    <span class="dannmaku">我现在就想报名！</span>
-                    <span class="dannmaku">我湘带争气了</span>
-                    <span class="dannmaku">鸡你太美</span>
-                    <span class="dannmaku">就问你们打不打音游</span>
-                </div>
-            </div>
-            <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
-            <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
-            <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
+    <Gravity style="position: absolute; z-index: -1; overflow: hidden;" :width="viewControl.width"
+        :height="viewControl.height" :fov="viewControl.fov()" :distance="viewControl.distance()" />
+    <div id="gsap-content">
+        <div id="scene1" class="scene" :style="{ 'height': viewControl.height + 'px' }">
+            <typed class="layer" />
+            <dannmaku class="layer" style="z-index: -1;"/>
         </div>
-    <!-- </div> -->
+        <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
+        <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
+        <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
+    </div>
 </template>
 
 <script setup lang="ts">
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
-import { onMounted, reactive, ref,inject } from 'vue';
+import { onMounted, reactive, ref, inject, h, render, createVNode, renderList } from 'vue';
+import { el, mount, unmount } from "redom";
 // const scroller = inject('content-scroller',null);
-const s1Dannmaku = ref<HTMLElement>();
+const s1DannmakuContainer = ref<HTMLElement>();
+
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
+
 const viewControl = reactive({
     height: innerHeight,
     width: innerWidth,
@@ -104,50 +65,34 @@ const viewControl = reactive({
         return innerHeight / innerWidth * 2.4
     }
 })
+
+function createDom(json: { tag: string, content: string, sign?: { class?: string, id?: string } }): HTMLElement {
+    let dom = document.createElement(json.tag);
+    if (json.sign) {
+        if (json.sign.class) {
+            dom.classList.add(json.sign.class!);
+        }
+        if (json.sign.id) {
+            dom.id = json.sign.id!;
+        }
+    }
+    dom.textContent = json.content;
+    return dom;
+}
+
 onMounted(() => {
-    let s1Typed = gsap.timeline({
-        scrollTrigger: {
-            trigger: '#scene1',
-            toggleActions: "play pause resume reset",
-        },
-        repeat: -1,  
-        repeatDelay: 2 
-    });
-    s1Typed.from('#s1-title', { duration: 1, text: "萌屋研究所" });
-    s1Typed.to('#s1-title', { duration: 1, text: "萌屋工作室" });
-    s1Typed.to('#s1-title', { duration: 2, text: "不一样的快乐" });
-    s1Typed.to('#s1-title', { duration: 1, text: "萌屋研究所" });
-    let s1Dannmaku = gsap.timeline({
-        scrollTrigger: {
-            trigger: '#scene1',
-            toggleActions: "play pause resume reset",
-        },
-        defaults: {
-            duration: 1,
-            ease: "none"
-        },
-        repeat: -1,
-        repeatRefresh: true,
-        repeatDelay: 0
-    });
-    s1Dannmaku
-        .set('.dannmaku', {
-            x: '100vw',
-            xPercent: 100,
-            y: 'random(0,100)vh',
-            color: 'random([red,green,blue,yellow,white,orange,purple])',
-            fontSize:'random(0,50)px',
-            opacity: 1
-        })
-        .to('.dannmaku', {
-            duration: 'random(1,5)',
-            delay: 'random(1,5)',
-            x: '0vw',
-            xPercent: -100
-        })
+    // let domt = createDom({
+    //     tag: 'span',
+    //     content: 'test',
+    //     sign: { class: 'dannmaku' }
+    // })
+    // s1DannmakuContainer.value?.appendChild(domt)
+
     onresize = () => {
         viewControl.width = innerWidth
         viewControl.height = innerHeight
     }
 })
+
+// return ()=>{}
 </script>

@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Dannmaku: typeof import('./src/components/scene1/dannmaku.vue')['default']
     Gravity: typeof import('./src/components/Gravity.vue')['default']
     Gravity3D: typeof import('./src/components/gravity3D.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
@@ -27,5 +28,6 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ThreejsView: typeof import('./src/components/threejsView.vue')['default']
+    Typed: typeof import('./src/components/scene1/typed.vue')['default']
   }
 }
