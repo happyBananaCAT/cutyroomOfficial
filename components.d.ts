@@ -27,6 +27,8 @@ declare module '@vue/runtime-core' {
     OffscreenCanvas: typeof import('./src/components/offscreenCanvas.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    S2bg: typeof import('./src/components/scene2/s2bg.vue')['default']
+    Test: typeof import('./src/components/scene2/test.vue')['default']
     ThreejsView: typeof import('./src/components/threejsView.vue')['default']
     Typed: typeof import('./src/components/scene1/typed.vue')['default']
   }
