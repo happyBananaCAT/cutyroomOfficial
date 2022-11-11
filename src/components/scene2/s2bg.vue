@@ -29,8 +29,8 @@ onMounted(() => {
                 trigger: '#scene2',
                 toggleActions: 'restart pause revers pause',
                 scrub: 0.1,
-                start: '15% bottom',
-                end: '33% bottom'
+                start: '5% bottom',
+                end: '20% bottom'
             },
         }
     )
@@ -41,7 +41,7 @@ onMounted(() => {
                 trigger: '#scene2',
                 toggleActions: 'restart pause revers pause',
                 scrub: 0.1,
-                start: '66% bottom',
+                start: '60% bottom',
                 end: '80% bottom'
             },
         }

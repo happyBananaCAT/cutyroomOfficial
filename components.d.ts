@@ -7,8 +7,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Dailog: typeof import('./src/components/scene2/dailog.vue')['default']
     Dannmaku: typeof import('./src/components/scene1/dannmaku.vue')['default']
-    Gravity: typeof import('./src/components/Gravity.vue')['default']
+    Gravity: typeof import('./src/components/scene1/Gravity.vue')['default']
     Gravity3D: typeof import('./src/components/gravity3D.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']

@@ -4,7 +4,7 @@
     overflow: hidden;
     background: transparent;
     position: relative;
-    /* height: v-bind(viewControl.height()+'px'); 这里的不会计算响应*/
+    /* height: v-bind(viewControl.height()+'px'); 这里的不会计算响应?*/
 }
 
 .layer {
@@ -12,7 +12,6 @@
     height: 100%;
     width: 100%;
 }
-
 </style>
 
 <!-- 无编译css -->
@@ -25,11 +24,13 @@
         :height="viewControl.height" :fov="viewControl.fov()" :distance="viewControl.distance()" />
     <div id="gsap-content">
         <div id="scene1" class="scene" :style="{ 'height': viewControl.height + 'px' }">
-            <typed class="layer" style='z-index:1'/>
-            <dannmaku class="layer"/>
+            <typed class="layer" style="z-index:1" />
+            <dannmaku class="layer" />
+            <!-- 弹幕组件上class虽然正常但是却会warn？ -->
         </div>
-        <div id="scene2" class="scene" :style="{ 'height': viewControl.height * 3 + 'px' }">
-            <s2bg class="layer"/>
+        <div id="scene2" class="scene" :style="{ 'height': viewControl.height * 5 + 'px' }">
+            <s2bg class="layer" />
+            <dailog />
         </div>
         <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
         <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
@@ -61,20 +62,6 @@ const viewControl = reactive({
         return innerHeight / innerWidth * 2.4
     }
 })
-
-function createDom(json: { tag: string, content: string, sign?: { class?: string, id?: string } }): HTMLElement {
-    let dom = document.createElement(json.tag);
-    if (json.sign) {
-        if (json.sign.class) {
-            dom.classList.add(json.sign.class!);
-        }
-        if (json.sign.id) {
-            dom.id = json.sign.id!;
-        }
-    }
-    dom.textContent = json.content;
-    return dom;
-}
 
 onMounted(() => {
 

@@ -6,9 +6,10 @@
   height: calc(var(--vh) * 100);
   width: 100%;
 }
+
 /*移动设备兼容*/
 
-.scene{
+.scene {
   background: transparent;
   width: 100vw;
   height: 100vh;
@@ -45,6 +46,11 @@
   -webkit-filter: drop-shadow(.1rem .1rem .1rem rgba(240, 29, 113, 0.5));
   filter: drop-shadow(.1rem .1rem .1rem rgba(240, 29, 113, 0.5));
 }
+
+/* .n-layout-content {
+  background: transparent;
+  z-index: 10;
+} */
 
 .n-layout-footer {
   display: flex;
