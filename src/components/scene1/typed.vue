@@ -16,7 +16,10 @@
     font-weight: bold;
     /* backdrop-filter:blur(.1vw); */
     /* background-color: rgba(0, 0, 0, 0.1); */
-    box-shadow: inset 0 0 10vw rgba(50, 50, 50, 0.4);
+    box-shadow:
+        inset 0 10vw 10vw -10vw rgba(50, 50, 50, 0.4),
+        inset 10vw 0 10vw -10vw rgba(50, 50, 50, 0.4),
+        inset -10vw 0 10vw -10vw rgba(50, 50, 50, 0.4);
 }
 
 @media (max-aspect-ratio: 1/1) {
@@ -26,7 +29,10 @@
         color: white;
         text-shadow: .2vh .2vh 1vh rgba(0, 0, 0, 0.6);
         writing-mode: vertical-lr;
-        box-shadow: inset 0 0 10vh rgba(50, 50, 50, 0.4);
+        box-shadow:
+            inset 0 10vh 10vh -10vh rgba(50, 50, 50, 0.4),
+            inset 10vh 0vh 10vh -10vh rgba(50, 50, 50, 0.4),
+            inset -10vh 0 10vh -10vh rgba(50, 50, 50, 0.4);
     }
 }
 </style>
@@ -37,21 +43,20 @@ import { TextPlugin } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
 import { onMounted } from 'vue';
 
-gsap.registerPlugin(TextPlugin);
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(TextPlugin);
+// gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-    let s1Typed = gsap.timeline({
+    gsap.timeline({
         scrollTrigger: {
             trigger: '#typed',
             toggleActions: "play pause resume reset",
         },
         repeat: -1,
         repeatDelay: 2
-    });
-    s1Typed.from('#typed', { duration: 1, text: "萌屋研究所" });
-    s1Typed.to('#typed', { duration: 1, text: "萌屋工作室" });
-    s1Typed.to('#typed', { duration: 2, text: "不一样的快乐" });
-    s1Typed.to('#typed', { duration: 1, text: "萌屋研究所" });
+    }).from('#typed', { duration: 1, text: "萌屋研究所" })
+        .to('#typed', { duration: 1, text: "萌屋工作室" })
+        .to('#typed', { duration: 2, text: "不一样的快乐" })
+        .to('#typed', { duration: 1, text: "萌屋研究所" });
 })
 </script>

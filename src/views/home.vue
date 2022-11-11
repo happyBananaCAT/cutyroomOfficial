@@ -13,9 +13,6 @@
     width: 100%;
 }
 
-#scroller {
-    overflow: scroll;
-}
 </style>
 
 <!-- 无编译css -->
@@ -28,10 +25,12 @@
         :height="viewControl.height" :fov="viewControl.fov()" :distance="viewControl.distance()" />
     <div id="gsap-content">
         <div id="scene1" class="scene" :style="{ 'height': viewControl.height + 'px' }">
-            <typed class="layer" />
-            <dannmaku class="layer" style="z-index: -1;"/>
+            <typed class="layer" style='z-index:1'/>
+            <dannmaku class="layer"/>
         </div>
-        <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
+        <div id="scene2" class="scene" :style="{ 'height': viewControl.height * 3 + 'px' }">
+            <s2bg class="layer"/>
+        </div>
         <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
         <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
     </div>
