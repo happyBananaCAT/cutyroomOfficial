@@ -39,8 +39,6 @@
 
 <script setup lang="ts">
 import { gsap } from "gsap";
-import { TextPlugin } from "gsap/all";
-import { ScrollTrigger } from "gsap/all";
 import { onMounted } from 'vue';
 
 // gsap.registerPlugin(TextPlugin);

@@ -31,6 +31,7 @@
         <div id="scene2" class="scene" :style="{ 'height': viewControl.height * 5 + 'px' }">
             <s2bg class="layer" />
             <dailog />
+            <!-- <midiPlayer/> -->
         </div>
         <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
         <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
