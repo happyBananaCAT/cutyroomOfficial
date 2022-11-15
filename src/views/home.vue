@@ -12,6 +12,12 @@
     height: 100%;
     width: 100%;
 }
+.view{
+    position: fixed;
+    top:0;
+    height: 100%;
+    width: 100%;
+}
 </style>
 
 <!-- 无编译css -->
@@ -23,18 +29,20 @@
     <Gravity style="position: absolute; z-index: -1; overflow: hidden;" :width="viewControl.width"
         :height="viewControl.height" :fov="viewControl.fov()" :distance="viewControl.distance()" />
     <div id="gsap-content">
-        <div id="scene1" class="scene" :style="{ 'height': viewControl.height + 'px' }">
+        <div id="scene1" class="scene" :style="{ height: viewControl.height + 'px' }">
             <typed class="layer" style="z-index:1" />
             <dannmaku class="layer" />
             <!-- 弹幕组件上class虽然正常但是却会warn？ -->
         </div>
-        <div id="scene2" class="scene" :style="{ 'height': viewControl.height * 5 + 'px' }">
+        <div id="scene2" class="scene" :style="{ height: viewControl.height * 3 + 'px' }">
             <s2bg class="layer" />
             <dailog />
-            <!-- <midiPlayer/> -->
+            <flowy class="view"/>
         </div>
-        <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
-        <div class="scene" :style="{ 'height': viewControl.height + 'px' }"></div>
+        <div id="scene3" class="scene" :style="{ height: viewControl.height + 'px' }">
+            <sanhua class="view"/>
+        </div>
+        <div class="scene" :style="{ height: viewControl.height + 'px' }"></div>
     </div>
 </template>
 

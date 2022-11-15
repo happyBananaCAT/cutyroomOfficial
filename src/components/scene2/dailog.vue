@@ -65,7 +65,7 @@ onMounted(() => {
             isDesktop: "(min-aspect-ratio: 1/1)",
         },
         (context) => {
-            let { isMobile } = context.conditions;
+            let { isMobile } = context.conditions as gsap.Conditions;
             // console.log(context.conditions);
             gsap.set("#dailog", {
                 yPercent: 0,
@@ -73,8 +73,8 @@ onMounted(() => {
             let show = gsap
                 .timeline({
                     scrollTrigger: {
-                        start: "5% bottom",
-                        end: "20% bottom",
+                        start: "3% bottom",
+                        end: "33% bottom",
                         onEnter: () => {
                             if (midiData && !player.isPlaying()) {
                                 console.log('enter play');
@@ -92,8 +92,9 @@ onMounted(() => {
             let dailog = gsap
                 .timeline({
                     scrollTrigger: {
-                        start: "20% bottom",
-                        end: "60% bottom",
+                        start: "33% bottom",
+                        end: "bottom bottom",
+                        snap:0.05,
                         scrub: isMobile ? .1 : 1,
                         onUpdate: () => {
                             if (midiData && !player.isPlaying()) {

@@ -167,13 +167,13 @@ function isElementInViewport(el: HTMLElement) {
 </script>
 
 <template>
-    <div ref="container" id="container"></div>
+    <div ref="container" id="container" :style="{height: props.height+'px', width:props.width+'px'}"></div>
 </template>
 
 <style scoped>
-#container {
-    /* background: element(); */
+/* #container {
+    ?background: element();
     height: v-bind($props.height+'px');
     width: v-bind($props.width+'px');
-}
+} */
 </style>
