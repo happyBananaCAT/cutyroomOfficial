@@ -9,11 +9,6 @@
 
 .layer {
     position: absolute;
-    height: 100%;
-    width: 100%;
-}
-.view{
-    position: fixed;
     top:0;
     height: 100%;
     width: 100%;
@@ -37,10 +32,10 @@
         <div id="scene2" class="scene" :style="{ height: viewControl.height * 3 + 'px' }">
             <s2bg class="layer" />
             <dailog />
-            <flowy class="view"/>
+            <flowy class="layer"/>
         </div>
         <div id="scene3" class="scene" :style="{ height: viewControl.height + 'px' }">
-            <sanhua class="view"/>
+            <sanhua class="layer"/>
         </div>
         <div class="scene" :style="{ height: viewControl.height + 'px' }"></div>
     </div>

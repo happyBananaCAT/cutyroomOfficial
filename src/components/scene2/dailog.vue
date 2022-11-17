@@ -12,7 +12,7 @@
     color: white;
     border: 5px solid #ffffff;
     background-color: #000000;
-    z-index: 1;
+    z-index: 5;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
     font-size: 10vh;
 }
@@ -40,13 +40,13 @@ const player = new mm.SoundFontPlayer(
 onMounted(() => {
     mm.urlToNoteSequence("/src/assets/midis/YourBestFriend.mid").then(
         value => {
-            console.log(value);
+            // console.debug(value);
             player.loadSamples(value).then(
                 () => {
-                    console.log(
-                        player.getPlayState(),
-                        player.isPlaying()
-                    );
+                    // console.log(
+                    //     player.getPlayState(),
+                    //     player.isPlaying()
+                    // );
                     player.stop();
                     player.resumeContext();
                     midiData = value;
@@ -77,7 +77,7 @@ onMounted(() => {
                         end: "33% bottom",
                         onEnter: () => {
                             if (midiData && !player.isPlaying()) {
-                                console.log('enter play');
+                                // console.log('enter play');
                                 player.resumeContext();
                                 player.start(midiData!);
                             }
@@ -94,11 +94,11 @@ onMounted(() => {
                     scrollTrigger: {
                         start: "33% bottom",
                         end: "bottom bottom",
-                        snap:0.05,
+                        snap:[0.0,0.15,0.3,0.35,0.5,0.65,0.8,0.95],
                         scrub: isMobile ? .1 : 1,
                         onUpdate: () => {
                             if (midiData && !player.isPlaying()) {
-                                console.log('enter play');
+                                // console.log('enter play');
                                 player.resumeContext();
                                 player.start(midiData!);
                             }
@@ -136,7 +136,7 @@ onMounted(() => {
                 .to("#dailog", { text: "", fontSize: isMobile ? "7vw" : "5.5vh" })
                 .to("#dailog", { text: "为啥要我解释Fair use的事情？？？有问题Github会解决的。" })
 
-                .to("#dailog", { text: "" })
+                .to("#dailog", { text: "总之保持滚动浏览内容" })
                 .to("#dailog", { text: "", fontSize: isMobile ? "10vw" : "11vh" })
                 .to("#dailog", { text: "好了，我该走了......" })
                 .to("#dailog", { yPercent: 0 });
