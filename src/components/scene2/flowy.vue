@@ -3,7 +3,7 @@
         <div id="flowy"></div>
         <div id="floor"></div>
         <div id="container">
-            <img id="s2avatar" src="../../assets/imgs/by_tobyFox/winkFlowy.png"/>
+            <img id="s2avatar" src="../../assets/imgs/by_tobyFox/winkFlowy.png" />
         </div>
     </div>
 </template>
@@ -51,13 +51,31 @@
     overflow: hidden;
     opacity: 1;
 }
-#s2avatar{
+
+#s2avatar {
     left: 0;
     height: 22vh;
     image-rendering: pixelated;
+    opacity: 0;
 }
 
-@media (max-aspect-ratio: 1/1) {}
+@media (max-aspect-ratio: 1/1) {
+    #floor {
+        top: 20vw;
+        height: 20vw;
+        width: 63.158vw;
+    }
+
+    #flowy {
+        top: 15vw;
+        height: 11.5vw;
+        width: 10.5vw;
+    }
+
+    #container {
+        top: 40vh;
+    }
+}
 </style>
 
 <script setup lang="ts">
@@ -66,7 +84,7 @@ import { onMounted } from "vue";
 onMounted(() => {
     let viewStart = gsap.timeline({
         scrollTrigger: {
-            toggleActions: "restart pause revers pause",
+            // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
             start: "top top",
             end: 'bottom bottom',
@@ -74,24 +92,24 @@ onMounted(() => {
     }).to(
         '#s2view', {
         position: 'fixed',
-        opacity: 1,
         top: 0
     })
     let viewEnd = gsap.timeline({
         scrollTrigger: {
-            toggleActions: "restart pause revers pause",
+            // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
             start: "bottom bottom",
             snap: 100
         }
     }).to(
         '#s2view', {
-        opacity: 0
+        opacity: 0,
+        position:'absolute'
     })
 
     let flowy = gsap.timeline({
         scrollTrigger: {
-            toggleActions: "restart pause revers pause",
+            // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
             scrub: false,
             start: 'top top',
@@ -108,7 +126,7 @@ onMounted(() => {
 
     let flowyTalk = gsap.timeline({
         scrollTrigger: {
-            toggleActions: "restart pause revers pause",
+            // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
             scrub: false,
             start: "15% center",
@@ -116,17 +134,17 @@ onMounted(() => {
         },
     }).set(
         '#s2avatar', {
-        xPercent:-10
+        xPercent: -10
     }).to(
         '#s2avatar', {
         duration: .5,
         repeat: -1,
-        xPercent:-20,
+        xPercent: -20,
         ease: 'steps(1)'
     })
     let flowySussy = gsap.timeline({
         scrollTrigger: {
-            toggleActions: "restart pause revers pause",
+            // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
             scrub: false,
             start: "48% center",
@@ -134,17 +152,17 @@ onMounted(() => {
         }
     }).set(
         '#s2avatar', {
-        xPercent:-30
+        xPercent: -30
     }).to(
         '#s2avatar', {
         duration: .5,
         repeat: -1,
-        xPercent:-40,
+        xPercent: -40,
         ease: 'steps(1)'
     })
     let flowyAnger = gsap.timeline({
         scrollTrigger: {
-            toggleActions: "restart pause revers pause",
+            // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
             scrub: false,
             start: "64% center",
@@ -152,22 +170,22 @@ onMounted(() => {
         }
     }).set(
         '#s2avatar', {
-        xPercent:-50
+        xPercent: -50
     }).to(
         '#s2avatar', {
         duration: .5,
         repeat: -1,
-        xPercent:-60,
+        xPercent: -60,
         ease: 'steps(1)'
     })
     let flowyCuty = gsap.to('#s2avatar', {
         scrollTrigger: {
-            toggleActions: "restart pause revers pause",
+            // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
             scrub: false,
             start: "79% center",
         },
-        xPercent:0,
+        xPercent: 0,
         ease: 'steps(1)'
     })
 })

@@ -43,12 +43,8 @@ onMounted(() => {
             // console.debug(value);
             player.loadSamples(value).then(
                 () => {
-                    // console.log(
-                    //     player.getPlayState(),
-                    //     player.isPlaying()
-                    // );
-                    player.stop();
-                    player.resumeContext();
+                    // player.stop();
+                    // player.resumeContext();
                     midiData = value;
                 }
             )

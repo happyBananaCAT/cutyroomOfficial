@@ -58,7 +58,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="nav nav-height">
+  <nav class="nav nav-height">
     <div class="logo nav-height">
       <img class="logo" src="./assets/logo.svg">
       <span>萌屋</span>
@@ -73,45 +73,19 @@ onMounted(() => {
         </n-button>
       </n-dropdown>
     </n-config-provider>
-  </div>
+  </nav>
   <n-layout-content style="background: transparent; z-index: 10;">
     <router-view></router-view>
   </n-layout-content>
-  <n-layout-footer>
-    <span>萌屋研究所🧡</span>
-    <span>
-      <span>@C.S.N.创新创业实验室</span>
-      <span>❤️湘潭大学</span>
-    </span>
-    <span>💛Kerocate</span>
-  </n-layout-footer>
-  <!-- <n-layout position="absolute">
-      <n-layout-header position="absolute" class="nav nav-height">
-        <div class="logo nav-height">
-          <img class="logo" src="./assets/logo.svg">
-          <span>萌屋</span>
-        </div>
-        <n-dropdown trigger="click" :options="nboptions">
-          <n-button color="#ff0066" circle size="large" style="
-            -webkit-filter: drop-shadow(.1rem .1rem .1rem rgba(200, 25, 95, 0.7));
-            filter: drop-shadow(.1rem .1rem .1rem rgba(200, 25, 95, 0.7));
-          ">
-            <n-icon size="2rem" :component="More48Regular"></n-icon>
-          </n-button>
-        </n-dropdown>
-      </n-layout-header>
-      <n-scrollbar>
-        <n-layout-content style="background: transparent; z-index: 10;">
-          <router-view></router-view>
-        </n-layout-content>
-        <n-layout-footer>
-          <span>萌屋研究所🧡</span>
-          <span>
-            <span>@C.S.N.创新创业实验室</span>
-            <span>❤️湘潭大学</span>
-          </span>
-          <span>💛Kerocate</span>
-        </n-layout-footer>
-      </n-scrollbar>
-    </n-layout> -->
+  <footer>
+    <n-layout-footer>
+      <span>萌屋研究所🧡</span>
+      <span>
+        <span>@C.S.N.创新创业实验室</span>
+        <span>❤️湘潭大学</span>
+      </span>
+      <span>💛Kerocate</span>
+    </n-layout-footer>
+  </footer>
+  <!-- todo:增加一个授权同意的loading页面，显示自动播放音频和光敏癫痫警告 -->
 </template>
