@@ -103,7 +103,7 @@ onMounted(() => {
         pin: true,
         trigger: '#sanhua',
         toggleActions: "play none none none",
-        start: 'center center',
+        start: 'center 40%',
         end: 'center top',
         onEnter: () => {
             genHua(huaTL, '.huaL', huaLB, [huaLM, huaLE]);

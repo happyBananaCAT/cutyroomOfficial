@@ -36,6 +36,7 @@
         </div>
         <div id="scene3" class="scene" :style="{ height: viewControl.height + 'px' }">
             <sanhua class="layer"/>
+            <intor class="layer" style="overflow-y: scroll;"/>
         </div>
         <div class="scene" :style="{ height: viewControl.height + 'px' }"></div>
     </div>
