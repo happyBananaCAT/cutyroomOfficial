@@ -23,7 +23,7 @@ let huaTL = gsap.timeline();
 let huaTR = gsap.timeline();
 
 let huaLB: gsap.TweenVars = {
-    repeatRefresh: true,
+    // repeatRefresh: true,
     xPercent: -100,
     yPercent: -100,
     y: '100vh',
@@ -33,7 +33,7 @@ let huaLB: gsap.TweenVars = {
     ease: 'power1.inOut'
 }
 let huaRB: gsap.TweenVars = {
-    repeatRefresh: true,
+    // repeatRefresh: true,
     yPercent: -100,
     x: '100vw',
     y: '100vh',
@@ -90,8 +90,8 @@ async function genHua(timeline: gsap.core.Timeline, target: gsap.TweenTarget, fr
         doms[index] = el('span', hua[Math.floor(Math.random() * hua.length)]);
         doms[index].classList.add(target!.toString().replace('.', ''));
         sanhua.value?.appendChild(doms[index]);
+        gsap.set(doms[index],from)
     }
-    timeline.set(target, from)
     for await (const iterator of to) {
         timeline.to(target, iterator)
     }
@@ -101,10 +101,10 @@ onMounted(() => {
     ScrollTrigger.create({
         // markers:true,
         pin: true,
-        trigger: '#sanhua',
+        trigger: '#scene3',
         toggleActions: "play none none none",
-        start: 'center 40%',
-        end: 'center top',
+        start: 'top top',
+        end: 'bottom top',
         onEnter: () => {
             genHua(huaTL, '.huaL', huaLB, [huaLM, huaLE]);
             genHua(huaTR, '.huaR', huaRB, [huaRM, huaRE]);

@@ -9,7 +9,7 @@
 
 .layer {
     position: absolute;
-    top:0;
+    top: 0;
     height: 100%;
     width: 100%;
 }
@@ -32,13 +32,16 @@
         <div id="scene2" class="scene" :style="{ height: viewControl.height * 3 + 'px' }">
             <s2bg class="layer" />
             <dailog />
-            <flowy class="layer"/>
+            <flowy class="layer" />
         </div>
         <div id="scene3" class="scene" :style="{ height: viewControl.height + 'px' }">
-            <sanhua class="layer"/>
-            <intor class="layer" style="overflow-y: scroll;"/>
+            <sanhua class="layer" />
+            <intor class="layer"
+                style="overflow-y: scroll; border: 1px solid gainsboro; box-shadow: inset 0px 0px 5px 1px gainsboro;" />
         </div>
-        <div class="scene" :style="{ height: viewControl.height + 'px' }"></div>
+        <div id="scene4" class="scene" :style="{ height: viewControl.height + 'px' }">
+            <credit-wall class="layer" />
+        </div>
     </div>
 </template>
 
@@ -47,6 +50,7 @@ import { gsap } from "gsap";
 import { TextPlugin } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
 import { onMounted, reactive, ref, inject, h, render, createVNode, renderList } from 'vue';
+
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -70,11 +74,13 @@ const viewControl = reactive({
 
 onMounted(() => {
 
+
     onresize = () => {
         viewControl.width = innerWidth
         viewControl.height = innerHeight
     }
 })
+
 
 // return ()=>{}
 </script>

@@ -110,18 +110,22 @@
 </style>
 
 <template>
-    <div :type="props.type" class="outer">
-        <img :type="props.type" class="avatar" :src="props.avatarUrl" alt="avatar pic">
-        <div :type="props.type" class="chat">
-            <div ref="paddingSpan">
-                <slot>...</slot>
+    <!-- <Transition> -->
+        <div :type="props.type" class="outer" ref="outer">
+            <img :type="props.type" class="avatar" :src="props.avatarUrl" alt="avatar pic">
+            <div :type="props.type" class="chat">
+                <div ref="paddingSpan">
+                    <slot>...</slot>
+                </div>
             </div>
         </div>
-    </div>
+    <!-- </Transition> -->
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onBeforeUpdate, onMounted, onUpdated, ref } from 'vue';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 
 export interface Props {
@@ -141,13 +145,14 @@ const props = withDefaults(
 )
 
 const paddingSpan = ref<HTMLSpanElement>();
+const outer = ref<HTMLSpanElement>();
 
 onMounted(() => {
     if (paddingSpan.value?.childNodes) {
         const child = Array.from(paddingSpan.value.childNodes) as HTMLElement[];
 
         //优化第二版，额外补充后正常
-        if (child.slice(1,-1).every(node => node.nodeName === 'IMG' || node.className === 'n-image')) {
+        if (child.slice(1, -1).every(node => node.nodeName === 'IMG' || node.className === 'n-image')) {
             paddingSpan.value.style.setProperty("padding", "0");
         }
 
