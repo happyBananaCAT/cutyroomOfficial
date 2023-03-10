@@ -13,7 +13,7 @@ export default defineConfig({
   },
   plugins: [
     mkcert({
-      mkcertPath:".cert/mkcert-v1.4.4-windows-amd64.exe"
+      // mkcertPath:".cert/mkcert-v1.4.4-windows-amd64.exe"
     }),
     vue(),
     Components({
