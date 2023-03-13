@@ -6,7 +6,7 @@
 </style>
 
 <template>
-    <div class="frame" ref="frame">
+    <div id="frame" class="frame" ref="frame">
         <pop-chat>同学你好哇😋</pop-chat>
         <pop-chat>📣我是萌屋小管家，带您了解一下萌屋📣</pop-chat>
         <pop-chat>……稍等，🤓翻一下资料📖（向下滚动继续）</pop-chat>
@@ -82,9 +82,8 @@
         <pop-chat>萌屋虽然没做出名什么事情，但是要做的事情还有很多，也还很不成熟。</pop-chat>
         <pop-chat>在个人时间规划的好的前提下，我们不反对成员和其他团队组织有任何关系。</pop-chat>
         <pop-chat>除了以个人代表组织这种不太好的行为，任何团队和我们互动合做都是很欢迎的！</pop-chat>
-        <pop-chat>感兴趣的话也可可以看看校内的Godot团队</pop-chat>
-        <pop-chat>CSN实验室</pop-chat>
-        <pop-chat>ACM实验室</pop-chat>
+        <pop-chat>感兴趣的话也可可以看看我院的Godot小组</pop-chat>
+        <pop-chat>CSN实验室、ACM实验室</pop-chat>
         <pop-chat>爱你啵啵😘</pop-chat>
     </div>
 </template>
@@ -92,6 +91,7 @@
 <script setup lang="ts">
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { html } from "redom";
 import { h, onMounted, ref, render, resolveComponent } from 'vue';
 
 
@@ -115,7 +115,7 @@ const dialogTree: dialogTreeElement[] = [
     { ctt: "不要磨蹭，直接告诉咱吧" }
 ]   //对话树
 
-const frame = ref<HTMLElement>()
+// const frame = ref<HTMLElement>()
 
 onMounted(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -138,8 +138,19 @@ onMounted(() => {
         gsap.set(ele, {
             opacity: 0,
             // xPercent:-100
-        })
-        observer.observe(ele);
+        }).then(() => { observer.observe(ele); })
+    })
+
+    const frame = document.getElementById('frame')!
+    frame.addEventListener('scroll', (e) => {
+        if (frame.getBoundingClientRect().y != 0) {
+            frame.setAttribute('style', 'overflow-y:hidden')
+        }
+    }, { capture: true,passive:true })
+    document.addEventListener('scroll', (e) => {
+        if (frame.getBoundingClientRect().y == 0) {
+            frame.setAttribute('style', 'overflow-y:scroll')
+        }
     })
 })
 

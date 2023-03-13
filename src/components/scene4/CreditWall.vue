@@ -27,7 +27,6 @@
                         return hljs.highlight(str, { language: lang }).value;
                     } catch (__) { }
                 }
-        
                 return ''
             }
         }" />
@@ -41,7 +40,7 @@ import 'highlight.js/styles/github.css';
 import '/node_modules/github-markdown-css/github-markdown-light.css'
 import VueMarkdown from 'vue-markdown-render';
 
-const test = ref('loading…');
+const test = ref('正在加载感谢墙……\n\n长时间加载不出来快刷新看看！\n\n再不就是服务器出问题了（；´д｀）ゞ\n\n<b style="font-size:3vmin">或者也可以看看右上角菜单里面的更多内容🤓</b>');
 
 fetch('http://localhost:1337/api/articles/1')
     .then(response => response.json())

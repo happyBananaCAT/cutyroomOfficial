@@ -35,7 +35,9 @@ import type { NoteSequence } from "@magenta/music/es6";
 let midiData: null | NoteSequence = null;
 const player = new mm.SoundFontPlayer(
     "https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus"
-);
+)
+
+let ani: gsap.MatchMedia;
 
 onMounted(() => {
     mm.urlToNoteSequence("/src/assets/midis/YourBestFriend.mid").then(
@@ -55,7 +57,7 @@ onMounted(() => {
         toggleActions: "restart pause revers pause",
         scrub: 0.1,
     });
-    gsap.matchMedia().add(
+    ani = gsap.matchMedia().add(
         {
             isMobile: "(max-aspect-ratio: 1/1)",
             isDesktop: "(min-aspect-ratio: 1/1)",
@@ -139,4 +141,10 @@ onMounted(() => {
         }
     );
 });
+
+onUnmounted(
+    ()=>{
+        ani.kill()
+    }
+)
 </script>
