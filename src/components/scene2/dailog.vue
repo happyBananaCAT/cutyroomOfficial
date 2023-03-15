@@ -38,6 +38,8 @@ const player = new mm.SoundFontPlayer(
 )
 
 let ani: gsap.MatchMedia;
+let show: gsap.core.Timeline;
+let dailog: gsap.core.Timeline;
 
 onMounted(() => {
     mm.urlToNoteSequence("/src/assets/midis/YourBestFriend.mid").then(
@@ -68,7 +70,7 @@ onMounted(() => {
             gsap.set("#dailog", {
                 yPercent: 0,
             });
-            let show = gsap
+            show = gsap
                 .timeline({
                     scrollTrigger: {
                         start: "3% bottom",
@@ -87,12 +89,12 @@ onMounted(() => {
                     z: 1,
                     scale: 1,
                 });
-            let dailog = gsap
+            dailog = gsap
                 .timeline({
                     scrollTrigger: {
                         start: "33% bottom",
                         end: "bottom bottom",
-                        snap:[0.0,0.15,0.3,0.35,0.5,0.65,0.8,0.95],
+                        snap: [0.0, 0.15, 0.3, 0.35, 0.5, 0.65, 0.8, 0.95],
                         scrub: isMobile ? .1 : 1,
                         onUpdate: () => {
                             if (midiData && !player.isPlaying()) {
@@ -143,8 +145,11 @@ onMounted(() => {
 });
 
 onUnmounted(
-    ()=>{
+    () => {
         ani.kill()
+        show.kill()
+        dailog.kill()
+        player.stop()
     }
 )
 </script>

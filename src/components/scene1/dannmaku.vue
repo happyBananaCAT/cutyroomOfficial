@@ -30,10 +30,7 @@ import { TextPlugin } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
 import { random } from "lodash";
 import { el } from "redom";
-import { onMounted, ref } from 'vue';
-
-// gsap.registerPlugin(TextPlugin);
-// gsap.registerPlugin(ScrollTrigger);
+import { onMounted, onUnmounted, ref } from 'vue';
 
 const dannmaku = ref<HTMLElement>()
 
@@ -72,9 +69,9 @@ const DannmakuText = [
     // ,'','','',''
 ]
 const randomArray = new Uint8Array(1);
-
+let dannmakuTl: gsap.core.Timeline
 onMounted(() => {
-    let dannmakuTl = gsap.timeline({
+    dannmakuTl = gsap.timeline({
         scrollTrigger: {
             trigger: '#dannmaku',
             toggleActions: "play pause resume reset",
@@ -119,5 +116,9 @@ onMounted(() => {
         }
         initTimeline();
     }
+});
+
+onUnmounted(() => {
+    dannmakuTl.kill();
 })
 </script>

@@ -21,9 +21,10 @@
 
 <script setup lang="ts">
 import { gsap } from "gsap";
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
+let bg: gsap.core.Timeline;
 onMounted(() => {
-    gsap.timeline(
+    bg = gsap.timeline(
         {
             scrollTrigger: {
                 trigger: '#scene2',

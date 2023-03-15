@@ -39,22 +39,28 @@
 
 <script setup lang="ts">
 import { gsap } from "gsap";
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 
 // gsap.registerPlugin(TextPlugin);
 // gsap.registerPlugin(ScrollTrigger);
 
+let typed:gsap.core.Timeline
+
 onMounted(() => {
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: '#typed',
-            toggleActions: "play pause resume reset",
-        },
+    typed = gsap.timeline({
+        // scrollTrigger: {
+        //     trigger: '#typed',
+        //     toggleActions: "play pause resume reset",
+        // },
         repeat: -1,
         repeatDelay: 2
     }).from('#typed', { duration: 1, text: "萌屋研究所" })
         .to('#typed', { duration: 1, text: "萌屋工作室" })
         .to('#typed', { duration: 2, text: "不一样的快乐" })
         .to('#typed', { duration: 1, text: "萌屋研究所" });
+})
+
+onUnmounted(() => {
+    typed.kill()
 })
 </script>

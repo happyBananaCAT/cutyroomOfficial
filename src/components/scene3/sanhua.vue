@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from '@vue/runtime-core';
+import { ref, onMounted, onUnmounted } from '@vue/runtime-core';
 import { ScrollTrigger, gsap } from 'gsap/all';
 import type { elementDark } from 'naive-ui';
 import { el } from 'redom';
@@ -99,6 +99,7 @@ async function genHua(timeline: gsap.core.Timeline, target: gsap.TweenTarget, fr
 
 onMounted(() => {
     ScrollTrigger.create({
+        once:true,
         // markers:true,
         pin: true,
         trigger: '#scene3',

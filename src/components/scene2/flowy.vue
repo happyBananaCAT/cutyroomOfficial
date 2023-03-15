@@ -80,9 +80,16 @@
 
 <script setup lang="ts">
 import { gsap } from "gsap";
-import { onMounted } from "vue";
+import { onMounted, onUnmounted } from "vue";
+let viewStart: gsap.core.Timeline;
+let viewEnd: gsap.core.Timeline;
+let flowy: gsap.core.Timeline;
+let flowyTalk: gsap.core.Timeline;
+let flowySussy: gsap.core.Timeline;
+let flowyAnger: gsap.core.Timeline;
+let flowyCuty: gsap.core.Tween
 onMounted(() => {
-    let viewStart = gsap.timeline({
+    viewStart = gsap.timeline({
         scrollTrigger: {
             // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
@@ -94,7 +101,7 @@ onMounted(() => {
         position: 'fixed',
         top: 0
     })
-    let viewEnd = gsap.timeline({
+    viewEnd = gsap.timeline({
         scrollTrigger: {
             // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
@@ -104,10 +111,10 @@ onMounted(() => {
     }).to(
         '#s2view', {
         opacity: 0,
-        position:'absolute'
+        position: 'absolute'
     })
 
-    let flowy = gsap.timeline({
+    flowy = gsap.timeline({
         scrollTrigger: {
             // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
@@ -124,7 +131,7 @@ onMounted(() => {
         opacity: 1,
     })
 
-    let flowyTalk = gsap.timeline({
+    flowyTalk = gsap.timeline({
         scrollTrigger: {
             // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
@@ -142,7 +149,7 @@ onMounted(() => {
         xPercent: -20,
         ease: 'steps(1)'
     })
-    let flowySussy = gsap.timeline({
+    flowySussy = gsap.timeline({
         scrollTrigger: {
             // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
@@ -160,7 +167,7 @@ onMounted(() => {
         xPercent: -40,
         ease: 'steps(1)'
     })
-    let flowyAnger = gsap.timeline({
+    flowyAnger = gsap.timeline({
         scrollTrigger: {
             // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
@@ -178,7 +185,7 @@ onMounted(() => {
         xPercent: -60,
         ease: 'steps(1)'
     })
-    let flowyCuty = gsap.to('#s2avatar', {
+    flowyCuty = gsap.to('#s2avatar', {
         scrollTrigger: {
             // toggleActions: "restart pause revers pause",
             trigger: '#scene2',
@@ -188,5 +195,15 @@ onMounted(() => {
         xPercent: 0,
         ease: 'steps(1)'
     })
+})
+
+onUnmounted(() => {
+    viewStart.kill()
+    viewEnd.kill()
+    flowy.kill()
+    flowyTalk.kill()
+    flowySussy.kill()
+    flowyAnger.kill()
+    flowyCuty.kill()
 })
 </script>

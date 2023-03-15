@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Card: typeof import('./src/components/view/show/card.vue')['default']
     CreditWall: typeof import('./src/components/scene4/CreditWall.vue')['default']
     Dailog: typeof import('./src/components/scene2/Dailog.vue')['default']
     Dannmaku: typeof import('./src/components/scene1/Dannmaku.vue')['default']
@@ -26,10 +27,12 @@ declare module '@vue/runtime-core' {
     NThemeEditor: typeof import('naive-ui')['NThemeEditor']
     OffscreenCanvas: typeof import('./src/components/trashcan/offscreenCanvas.vue')['default']
     PopChat: typeof import('./src/components/scene3/intors/PopChat.vue')['default']
+    ProfileCard: typeof import('./src/components/view/show/profileCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     S2bg: typeof import('./src/components/scene2/S2bg.vue')['default']
     Sanhua: typeof import('./src/components/scene3/Sanhua.vue')['default']
+    SectionBlock: typeof import('./src/components/view/show/sectionBlock.vue')['default']
     ThreejsView: typeof import('./src/components/trashcan/threejsView.vue')['default']
     Typed: typeof import('./src/components/scene1/Typed.vue')['default']
   }
