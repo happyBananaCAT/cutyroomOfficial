@@ -158,7 +158,7 @@
                           <bubble content="策划负责瞎码案子和与摆烂摸鱼的程序团队交流" avatar="https://th.bing.com/th/id/OIP.KrNODYRFyHZoViFHhNT5wAHaHU?pid=ImgDet&rs=1"></bubble>
                           <bubble content="程序负责加班熬夜和掉头发" avatar="https://th.bing.com/th/id/OIP.KrNODYRFyHZoViFHhNT5wAHaHU?pid=ImgDet&rs=1"></bubble>
                           <bubble content="美术和音乐负责满足策划的奇怪审美" avatar="https://th.bing.com/th/id/OIP.KrNODYRFyHZoViFHhNT5wAHaHU?pid=ImgDet&rs=1"></bubble>
-                          <bubble content="总之,上班的人是不可能轻松的🙏" avatar="https://th.bing.com/th/id/OIP.KrNODYRFyHZoViFHhNT5wAHaHU?pid=ImgDet&rs=1"></bubble>
+                          <bubble content="总之，上班的人是不可能轻松的🙏" avatar="https://th.bing.com/th/id/OIP.KrNODYRFyHZoViFHhNT5wAHaHU?pid=ImgDet&rs=1"></bubble>
                           <bubble content="社畜的眼泪🥲" avatar="https://th.bing.com/th/id/OIP.KrNODYRFyHZoViFHhNT5wAHaHU?pid=ImgDet&rs=1"></bubble>
                       </div>
                   </form>
