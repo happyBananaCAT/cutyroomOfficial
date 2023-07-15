@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Bubble: typeof import('./src/components/view/join/bubble.vue')['default']
     Card: typeof import('./src/components/view/show/card.vue')['default']
     CreditWall: typeof import('./src/components/scene4/CreditWall.vue')['default']
     Dailog: typeof import('./src/components/scene2/Dailog.vue')['default']
@@ -14,26 +15,64 @@ declare module '@vue/runtime-core' {
     Flowy: typeof import('./src/components/scene2/Flowy.vue')['default']
     Gravity: typeof import('./src/components/scene1/Gravity.vue')['default']
     Gravity3D: typeof import('./src/components/trashcan/gravity3D.vue')['default']
+<<<<<<< Updated upstream
     Intor: typeof import('./src/components/scene3/Intor.vue')['default']
     MidiPlayer: typeof import('./src/components/trashcan/midiPlayer.vue')['default']
+=======
+    Intor: typeof import('./src/components/scene3/intor.vue')['default']
+    MidiPlayer: typeof import('./src/components/trashcan/midiPlayer.vue')['default']
+    MultiplyChoice: typeof import('./src/components/view/join/multiplyChoice.vue')['default']
+    NAvatar: typeof import('naive-ui')['NAvatar']
+>>>>>>> Stashed changes
     NButton: typeof import('naive-ui')['NButton']
+    NCard: typeof import('naive-ui')['NCard']
+    NCarousel: typeof import('naive-ui')['NCarousel']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDropdown: typeof import('naive-ui')['NDropdown']
+<<<<<<< Updated upstream
     NEl: typeof import('naive-ui')['NEl']
+=======
+    NForm: typeof import('naive-ui')['NForm']
+>>>>>>> Stashed changes
     NIcon: typeof import('naive-ui')['NIcon']
     NImage: typeof import('naive-ui')['NImage']
     NLayoutContent: typeof import('naive-ui')['NLayoutContent']
     NLayoutFooter: typeof import('naive-ui')['NLayoutFooter']
+<<<<<<< Updated upstream
     NThemeEditor: typeof import('naive-ui')['NThemeEditor']
     OffscreenCanvas: typeof import('./src/components/trashcan/offscreenCanvas.vue')['default']
     PopChat: typeof import('./src/components/scene3/intors/PopChat.vue')['default']
     ProfileCard: typeof import('./src/components/view/show/profileCard.vue')['default']
+=======
+    Nradio: typeof import('./src/components/view/join/nradio.vue')['default']
+    NRadio: typeof import('naive-ui')['NRadio']
+    NRadioGroup: typeof import('naive-ui')['NRadioGroup']
+    NSpace: typeof import('naive-ui')['NSpace']
+    OffscreenCanvas: typeof import('./src/components/trashcan/offscreenCanvas.vue')['default']
+    PictureLeft: typeof import('./src/components/view/join/pictureLeft.vue')['default']
+    PictureRight: typeof import('./src/components/view/join/pictureRight.vue')['default']
+    PopChat: typeof import('./src/components/scene3/intors/popChat.vue')['default']
+    Problem: typeof import('./src/components/view/join/Problem.vue')['default']
+    ProblemChoice: typeof import('./src/components/view/join/problemChoice.vue')['default']
+    ProblemText: typeof import('./src/components/view/join/problemText.vue')['default']
+    ProfileCard: typeof import('./src/components/view/show/profileCard.vue')['default']
+    Radio: typeof import('./src/components/view/join/radio.vue')['default']
+    RadioChoice: typeof import('./src/components/view/join/radioChoice.vue')['default']
+>>>>>>> Stashed changes
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     S2bg: typeof import('./src/components/scene2/S2bg.vue')['default']
     Sanhua: typeof import('./src/components/scene3/Sanhua.vue')['default']
     SectionBlock: typeof import('./src/components/view/show/sectionBlock.vue')['default']
+<<<<<<< Updated upstream
     ThreejsView: typeof import('./src/components/trashcan/threejsView.vue')['default']
     Typed: typeof import('./src/components/scene1/Typed.vue')['default']
+=======
+    Snake: typeof import('./src/components/view/join/snake.vue')['default']
+    TelText: typeof import('./src/components/view/join/telText.vue')['default']
+    ThreejsView: typeof import('./src/components/trashcan/threejsView.vue')['default']
+    Typed: typeof import('./src/components/scene1/typed.vue')['default']
+    Waterdrop: typeof import('./src/components/view/join/waterdrop.vue')['default']
+>>>>>>> Stashed changes
   }
 }
