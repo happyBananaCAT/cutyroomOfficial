@@ -219,7 +219,7 @@
           </div>
             <div id="right" class="h-screen w-1/5" >
               <img src="https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=600">
-              <waterdrop content="暂时不知道该写什么"></waterdrop>
+              <waterdrop content="暂时不知道该写些什么"></waterdrop>
             </div>
         </div>
         <!-- right -->
