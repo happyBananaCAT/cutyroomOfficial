@@ -7,14 +7,20 @@
     }
 </style>
 <template>
-        <span class="font-black w-1/2 text-xl">{{ problem }}</span><br>
+    <span class=" font-medium">{{choiceId }}</span><span class=" font-medium">{{ answer}}</span><input type="radio" v-bind:name=name v-bind:id=id>
+    <br>
 </template>
 <script setup lang="ts">
 export interface Props {
-    problem:string
-    
+    choiceId:string
+    answer:string
+    name:string
+    id:string
 }
 const props = withDefaults(defineProps<Props>(), {
-    problem:'你是二次元吗？',
+   choiceId:'A:',
+   answer:'是',
+   name:'name',
+   id:'id',
 })
 </script>

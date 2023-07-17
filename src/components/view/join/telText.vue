@@ -7,22 +7,20 @@
     }
 </style>
 <template>
-    <div class=" text-xl font-bold  ">
-    <span class="font-bold">{{choiceId }}:</span><span class=" font-bold">{{ answer}}</span><input type="radio" v-bind:name=name v-bind:id=id>
+        <span class="font-black">{{ problem }}</span>
+        <textarea v-bind:name=name  v-bind:id=id  cols="40" rows="1" class="resize-none rounded-xl"></textarea>
     <br>
-</div>
 </template>
 <script setup lang="ts">
 export interface Props {
-    choiceId:string
-    answer:string
+    problem:string
+    must:string
     name:string
     id:string
 }
 const props = withDefaults(defineProps<Props>(), {
-   choiceId:'A',
-   answer:'是',
-   name:'name',
-   id:'id',
+    problem:'请输入你的电话号码，我们不会将您的个人信息泄露',
+    name:"name",
+    id:'id',
 })
 </script>
